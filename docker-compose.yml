@@ -1,0 +1,15 @@
+version: "3.9"
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  
+  postgres:
+    image: postgres:11.0-alpine
+    env_file:
+      - .envs/.dev
+    ports:
+      - "5444:5444"
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
